@@ -1,10 +1,11 @@
 // Fix Finans - Service Worker
 // Offline cache + basit güncelleme mekanizması
 
-const CACHE_SURUMU = "fixfinans-v1";
+const CACHE_SURUMU = "fixfinans-v2";
+
 const CACHE_DOSYALARI = [
   "./",
-  "./Fix_Finansproje.html",
+  "./index.html",
   "./manifest.json",
   "./chart.min.js",
   "./icon-192.png",
@@ -75,7 +76,8 @@ self.addEventListener("fetch", function (event) {
         .catch(function () {
           // Hem önbellek hem ağ yoksa ve ana sayfa isteniyorsa app shell'i döndür
           if (event.request.mode === "navigate") {
-            return caches.match("./Fix_Finansproje.html");
+    return caches.match("./index.html");
+            
           }
         });
     })
