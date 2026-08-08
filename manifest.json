@@ -2,7 +2,7 @@
   "name": "Fix Finans",
   "short_name": "Fix Finans",
   "description": "Kişisel finans, borç/alacak ve nakit akış takip uygulaması.",
-  "start_url": "./Fix_Finansproje.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
