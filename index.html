@@ -1238,43 +1238,6 @@ body.font-size-large .font-size-option .sample{font-size:34px!important}
 .light .tx-summary-new,.light .tx-day-card{background:#fff;border-color:#dfe4ee}
 .light .tx-day-items .txrow{border-color:#edf0f5!important}
 </style>
-
-<style id="fix-13387-reserve-orb-v4">
-/* 13.3.87 — Finansal Rezerv Küresi V4
-   Only replaces the visual inside the existing Net Bakiye card.
-   The 13.3.86 functional base is intentionally preserved. */
-.balance-line{position:relative;min-height:176px!important;align-items:flex-start!important;}
-.balance-line>div:first-child{position:relative;z-index:3;min-width:0;max-width:62%;}
-.balance-line>.reserve-orb{position:absolute!important;right:2px!important;top:-8px!important;left:auto!important;width:224px!important;height:190px!important;display:block!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;font-size:initial!important;z-index:2;pointer-events:none;overflow:visible!important;}
-.reserve-orb .reserve-orb-halo{position:absolute;inset:28px 24px 24px 24px;border-radius:50%;background:radial-gradient(circle,rgba(143,77,255,.32),rgba(98,38,214,.16) 45%,transparent 72%);filter:blur(8px);animation:reserveHalo 3.6s ease-in-out infinite;}
-.reserve-orb .reserve-orb-core{position:absolute;left:50%;top:53px;transform:translateX(-50%);width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 34% 28%,#e8d6ff 0 5%,#9a55ff 16%,#5d21d8 45%,#241052 78%,#11071f 100%);border:1px solid rgba(216,177,255,.72);box-shadow:0 0 14px rgba(145,72,255,.9),0 0 42px rgba(117,45,255,.55),inset 0 0 26px rgba(255,255,255,.14);animation:reserveCore 4.8s ease-in-out infinite;}
-.reserve-orb .reserve-orb-core:before{content:"";position:absolute;inset:8px;border:1px solid rgba(232,204,255,.28);border-radius:50%;}
-.reserve-orb .reserve-orb-lira{position:relative;z-index:2;font-size:48px;font-weight:900;line-height:1;color:#ffd84a;text-shadow:0 0 7px #fff1a2,0 0 22px rgba(255,180,20,.9);}
-.reserve-orb .reserve-orb-shine{position:absolute;left:19px;top:17px;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,255,255,.55) 25%,transparent 70%);filter:blur(1px);opacity:.85;}
-.reserve-orb .reserve-orbit{position:absolute;left:50%;top:99px;border:1px solid rgba(211,164,255,.58);border-radius:50%;transform:translate(-50%,-50%);transform-style:preserve-3d;}
-.reserve-orbit-1{width:180px;height:58px;animation:reserveOrbitA 7s linear infinite;}
-.reserve-orbit-2{width:190px;height:72px;transform:translate(-50%,-50%) rotate(58deg)!important;animation:reserveOrbitB 8s linear infinite;}
-.reserve-orbit-3{width:176px;height:54px;transform:translate(-50%,-50%) rotate(-55deg)!important;animation:reserveOrbitC 9s linear infinite;}
-.reserve-orb .reserve-coin{position:absolute;width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 32% 28%,#fff5a7,#ffd84a 32%,#d88a12 74%,#7e3d06);border:1px solid rgba(255,239,142,.85);color:#fff4a4;font-weight:900;font-size:15px;box-shadow:0 0 10px rgba(255,196,40,.72),inset 0 0 7px rgba(255,255,255,.45);animation:reserveCoinFloat 3.4s ease-in-out infinite;}
-.reserve-coin-1{left:20px;top:92px;animation-delay:-.7s!important}.reserve-coin-2{right:20px;top:70px;animation-delay:-1.8s!important}.reserve-coin-3{left:58px;bottom:20px;animation-delay:-2.5s!important}
-.reserve-orb .reserve-spark{position:absolute;color:#e6c4ff;text-shadow:0 0 8px #b96aff;font-size:13px;animation:reserveSpark 2.5s ease-in-out infinite;}.reserve-spark-1{left:25px;top:49px}.reserve-spark-2{right:28px;bottom:37px;animation-delay:-1.1s!important}
-.reserve-orb .reserve-platform{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:126px;height:20px;border-radius:50%;background:linear-gradient(180deg,#4a2388,#180a3d);border:1px solid rgba(190,126,255,.55);box-shadow:0 0 14px rgba(131,56,255,.8),inset 0 0 12px rgba(219,169,255,.22);}
-.reserve-platform:before{content:"";position:absolute;left:10px;right:10px;top:4px;height:4px;border-radius:50%;background:linear-gradient(90deg,transparent,#b97cff,transparent);box-shadow:0 0 9px #9d4dff;}
-.reserve-platform i{position:absolute;left:50%;top:50%;width:48px;height:5px;transform:translate(-50%,-50%);border-radius:50%;background:#c786ff;box-shadow:0 0 12px #c786ff;}
-.reserve-orb .reserve-bar{position:absolute;bottom:19px;width:7px;border-radius:3px 3px 0 0;background:linear-gradient(180deg,#9b5cff,#3a1490);box-shadow:0 0 7px rgba(141,75,255,.55);opacity:.9;}
-.reserve-bar-1{left:30px;height:25px}.reserve-bar-2{left:39px;height:38px}.reserve-bar-3{right:31px;height:31px}
-@keyframes reserveCore{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.035)}}
-@keyframes reserveHalo{0%,100%{opacity:.55;transform:scale(.96)}50%{opacity:.95;transform:scale(1.06)}}
-@keyframes reserveOrbitA{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes reserveOrbitB{from{transform:translate(-50%,-50%) rotate(58deg) rotate(0)}to{transform:translate(-50%,-50%) rotate(58deg) rotate(360deg)}}
-@keyframes reserveOrbitC{from{transform:translate(-50%,-50%) rotate(-55deg) rotate(0)}to{transform:translate(-50%,-50%) rotate(-55deg) rotate(360deg)}}
-@keyframes reserveCoinFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-7px) rotate(8deg)}}
-@keyframes reserveSpark{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
-@media(max-width:520px){.balance-line>.reserve-orb{right:-2px!important;top:-5px!important;width:196px!important;height:178px!important}.balance-line>div:first-child{max-width:58%}.reserve-orb .reserve-orb-core{width:82px;height:82px;top:49px}.reserve-orb .reserve-orb-lira{font-size:43px}.reserve-orb .reserve-orbit{top:92px}.reserve-orbit-1{width:158px;height:52px}.reserve-orbit-2{width:168px;height:62px}.reserve-orbit-3{width:158px;height:49px}.reserve-orb .reserve-platform{width:112px}.reserve-orb .reserve-coin{width:28px;height:28px;font-size:13px}.reserve-coin-1{left:13px}.reserve-coin-2{right:11px}}
-@media(max-width:380px){.balance-line{min-height:158px!important}.balance-line>.reserve-orb{width:174px!important;height:160px!important;right:-4px!important}.balance-line>div:first-child{max-width:60%}.reserve-orb .reserve-orb-core{width:72px;height:72px;top:47px}.reserve-orb .reserve-orb-lira{font-size:37px}.reserve-orb .reserve-orbit{top:86px}.reserve-orbit-1{width:142px;height:46px}.reserve-orbit-2{width:150px;height:54px}.reserve-orbit-3{width:142px;height:43px}.reserve-orb .reserve-platform{width:98px}}
-@media(prefers-reduced-motion:reduce){.reserve-orb *{animation:none!important}}
-</style>
-
 </head><body>
 
 <div id="fixWelcome" class="fix-welcome hidden">
@@ -1382,14 +1345,7 @@ function groupTransactionsByDay(list){const groups={};list.forEach(t=>{const k=d
 function dayTotals(list){return list.reduce((a,t)=>{const v=Number(t[1])||0;if(v>=0)a.income+=v;else a.expense+=Math.abs(v);return a},{income:0,expense:0});}
 function homeRecentGrouped(list){const groups=groupTransactionsByDay(list.slice(0,3));return groups.map(([d,items])=>{const totals=dayTotals(items);return `<div class="home-day-group"><div class="home-day-head"><b>${dayLabel(d)}</b><span class="home-day-totals"><span class="day-income">Gelir: ${money(totals.income)}</span><span class="day-expense">Gider: ${money(totals.expense)}</span></span></div>${items.map(row).join('')}</div>`}).join('');}
 function transactionDayGroups(list){return groupTransactionsByDay(list).map(([d,items])=>{const totals=dayTotals(items);return `<section class="day-group"><div class="day-head"><div class="day-title">${dayLabel(d)}<small>${dayFullLabel(d)}</small></div><div class="day-totals"><span class="day-income">Gelir: ${money(totals.income)}</span><span class="day-expense">Gider: ${money(totals.expense)}</span></div></div>${items.map(tx).join('')}</section>`}).join('');}
-function home(){const t=totals();const w=walletTotals();const avg=t.expense?Math.round(t.expense/7):0;const hidden=localStorage.getItem('fix_balance_hidden')==='1';const recent=state.transactions.length?homeRecentGrouped(state.transactions):'<button type="button" class="empty empty-clickable" onclick="openModal()" aria-label="İşlem ekle">Henüz işlem eklenmedi.<br><span style="opacity:.7">İlk gelir veya giderini + butonundan ekleyebilirsin.</span></button>';return `<div class="tabs reference-tabs"><button class="active" onclick="state.page='home';render()">${iconSvg('home')}<span>Özet</span></button><button onclick="state.page='reports';render()">${iconSvg('chart')}<span>Grafikler</span></button><button onclick="state.page='upcoming';render()">${iconSvg('calendar')}<span>Yaklaşan</span></button></div><section class="card balance"><div class="label balance-label">Net Bakiye <button class="eye-btn" aria-label="Bakiyeyi göster/gizle" onclick="toggleBalanceVisibility()">${iconSvg(hidden?'eyeOff':'eye')}</button></div><div class="balance-line"><div><span class="amount net-balance-counter" data-balance-value="${t.net}">${hidden?'••••••':money(t.net)}</span> <span class="status ${t.net>0?'':t.net<0?'status-negative':'status-neutral'}">${t.net>0?'↗ Pozitif':t.net<0?'↘ Negatif':'• Nötr'}</span></div><div class="wallet reserve-orb" aria-label="Finansal Rezerv Küresi" data-reserve-orb>
-  <div class="reserve-orb-halo"></div>
-  <div class="reserve-orb-core"><span class="reserve-orb-lira">₺</span><span class="reserve-orb-shine"></span></div>
-  <span class="reserve-orbit reserve-orbit-1"></span><span class="reserve-orbit reserve-orbit-2"></span><span class="reserve-orbit reserve-orbit-3"></span>
-  <span class="reserve-coin reserve-coin-1">₺</span><span class="reserve-coin reserve-coin-2">₺</span><span class="reserve-coin reserve-coin-3">₺</span>
-  <span class="reserve-spark reserve-spark-1">✦</span><span class="reserve-spark reserve-spark-2">✦</span>
-  <span class="reserve-platform"><i></i></span><span class="reserve-bar reserve-bar-1"></span><span class="reserve-bar reserve-bar-2"></span><span class="reserve-bar reserve-bar-3"></span>
-</div><div class="metrics"><div class="metric"><small>◉ Gelir</small><b class="green">+${hidden?'••••••':money(t.income)}</b></div><div class="metric"><small>◉ Gider</small><b class="red">-${hidden?'••••••':money(t.expense)}</b></div></div><div class="wallet-mini-row"><div class="wallet-mini cash"><span class="wallet-mini-icon">💵</span><span><small>Nakit</small><b>${hidden?'••••••':money(w.cash)}</b></span></div><div class="wallet-mini bank"><span class="wallet-mini-icon">🏦</span><span><small>Banka</small><b>${hidden?'••••••':money(w.bank)}</b></span></div></div></section><section class="card section"><div class="section-title">Hızlı İşlemler</div><div class="quick"><button onclick="openModal('Gelir')"><span class="qicon">＋</span>Gelir Ekle</button><button onclick="openModal('Gider')"><span class="qicon">−</span>Gider Ekle</button><button onclick="openModal('Transfer')"><span class="qicon">⇄</span>Transfer</button><button onclick="state.page='debts';render()"><span class="qicon">₺</span>Borç / Alacak</button></div></section><section class="card section"><div class="month-head"><b class="month-title"><span class="month-title-icon">${iconSvg('calendar')}</span> Bu Ay</b><button class="detail" onclick="state.page='reports';render()">İncele ›</button></div><div class="month-grid"><div class="month-cell"><small class="green">◉ Gelir</small><b class="green">${money(t.income)}</b></div><div class="month-cell"><small class="red">◉ Gider</small><b class="red">${money(t.expense)}</b></div><div class="month-cell"><small>Net</small><b>${money(t.net)}</b></div></div><div class="chips"><span class="chip green">↗ Gelir +%0</span><span class="chip">◌ ${money(avg)} / gün</span><span class="chip red">↘ Gider -%0</span></div></section><section class="card section smart-teaser"><div class="smart-teaser-head"><div><div class="smart-kicker">AKILLI FİNANS</div><b>Akıllı Finans Merkezi</b><small>Gelir, gider ve bütçeni tek bakışta yorumla.</small></div><button class="smart-open" onclick="state.page='smartCenter';render()">İncele ›</button></div><div class="smart-teaser-line"><span>${iconSvg('sparkle')} Kişisel finans özeti</span><span>Canlı veriden</span></div></section><section class="card section recent"><div class="list-head"><b>Son İşlemler</b><button class="detail" onclick="state.page='transactions';render()">İncele ›</button></div>${recent}</section>`}
+function home(){const t=totals();const w=walletTotals();const avg=t.expense?Math.round(t.expense/7):0;const hidden=localStorage.getItem('fix_balance_hidden')==='1';const recent=state.transactions.length?homeRecentGrouped(state.transactions):'<button type="button" class="empty empty-clickable" onclick="openModal()" aria-label="İşlem ekle">Henüz işlem eklenmedi.<br><span style="opacity:.7">İlk gelir veya giderini + butonundan ekleyebilirsin.</span></button>';return `<div class="tabs reference-tabs"><button class="active" onclick="state.page='home';render()">${iconSvg('home')}<span>Özet</span></button><button onclick="state.page='reports';render()">${iconSvg('chart')}<span>Grafikler</span></button><button onclick="state.page='upcoming';render()">${iconSvg('calendar')}<span>Yaklaşan</span></button></div><section class="card balance"><div class="label balance-label">Net Bakiye <button class="eye-btn" aria-label="Bakiyeyi göster/gizle" onclick="toggleBalanceVisibility()">${iconSvg(hidden?'eyeOff':'eye')}</button></div><div class="balance-line"><div><span class="amount net-balance-counter" data-balance-value="${t.net}">${hidden?'••••••':money(t.net)}</span> <span class="status ${t.net>0?'':t.net<0?'status-negative':'status-neutral'}">${t.net>0?'↗ Pozitif':t.net<0?'↘ Negatif':'• Nötr'}</span></div><div class="balance-sphere" aria-label="Finans küresi" role="img"><div class="sphere-orbit sphere-orbit-a"><span>₺</span></div><div class="sphere-orbit sphere-orbit-b"><span>$</span></div><div class="sphere-orbit sphere-orbit-c"><span>€</span></div><div class="sphere-glow"></div><div class="sphere-core"><span>₺</span></div><div class="sphere-shine"></div></div><div class="metrics"><div class="metric"><small>◉ Gelir</small><b class="green">+${hidden?'••••••':money(t.income)}</b></div><div class="metric"><small>◉ Gider</small><b class="red">-${hidden?'••••••':money(t.expense)}</b></div></div><div class="wallet-mini-row"><div class="wallet-mini cash"><span class="wallet-mini-icon">💵</span><span><small>Nakit</small><b>${hidden?'••••••':money(w.cash)}</b></span></div><div class="wallet-mini bank"><span class="wallet-mini-icon">🏦</span><span><small>Banka</small><b>${hidden?'••••••':money(w.bank)}</b></span></div></div></section><section class="card section"><div class="section-title">Hızlı İşlemler</div><div class="quick"><button onclick="openModal('Gelir')"><span class="qicon">＋</span>Gelir Ekle</button><button onclick="openModal('Gider')"><span class="qicon">−</span>Gider Ekle</button><button onclick="openModal('Transfer')"><span class="qicon">⇄</span>Transfer</button><button onclick="state.page='debts';render()"><span class="qicon">₺</span>Borç / Alacak</button></div></section><section class="card section"><div class="month-head"><b class="month-title"><span class="month-title-icon">${iconSvg('calendar')}</span> Bu Ay</b><button class="detail" onclick="state.page='reports';render()">İncele ›</button></div><div class="month-grid"><div class="month-cell"><small class="green">◉ Gelir</small><b class="green">${money(t.income)}</b></div><div class="month-cell"><small class="red">◉ Gider</small><b class="red">${money(t.expense)}</b></div><div class="month-cell"><small>Net</small><b>${money(t.net)}</b></div></div><div class="chips"><span class="chip green">↗ Gelir +%0</span><span class="chip">◌ ${money(avg)} / gün</span><span class="chip red">↘ Gider -%0</span></div></section><section class="card section smart-teaser"><div class="smart-teaser-head"><div><div class="smart-kicker">AKILLI FİNANS</div><b>Akıllı Finans Merkezi</b><small>Gelir, gider ve bütçeni tek bakışta yorumla.</small></div><button class="smart-open" onclick="state.page='smartCenter';render()">İncele ›</button></div><div class="smart-teaser-line"><span>${iconSvg('sparkle')} Kişisel finans özeti</span><span>Canlı veriden</span></div></section><section class="card section recent"><div class="list-head"><b>Son İşlemler</b><button class="detail" onclick="state.page='transactions';render()">İncele ›</button></div>${recent}</section>`}
 
 function categoryIcon(name,type){const n=String(name||'').toLocaleLowerCase('tr-TR').trim();if(n.includes('yemek')||n.includes('restaurant')||n.includes('restoran'))return '🍽️';if(n.includes('yakıt')||n.includes('yakit')||n.includes('benzin')||n.includes('akaryakıt')||n.includes('akaryakit'))return '⛽';if(n.includes('market')||n.includes('alışveriş')||n.includes('alisveris'))return '🛒';if(n.includes('kahve'))return '☕';if(n.includes('maaş')||n.includes('maas')||n.includes('hakediş')||n.includes('hakediş')||n.includes('prim'))return '💼';if(n.includes('kurye'))return '🛵';if(n.includes('transfer'))return '⇄';if(n.includes('telefon')||n.includes('turkcell')||n.includes('vodafone'))return '📱';if(n.includes('bilgisayar')||n.includes('microsoft')||n.includes('google'))return '💻';if(n.includes('eğlence')||n.includes('eglence'))return '🎮';if(n.includes('kira')||n.includes('ev'))return '🏠';if(n.includes('bakım')||n.includes('bakim')||n.includes('servis')||n.includes('motor bakım')||n.includes('motor bakim'))return '🔧';if(n.includes('banka')||n.includes('kredi')||n.includes('kart')||n.includes('yapı kredi')||n.includes('yapi kredi'))return '🏦';if(n.includes('yıkama')||n.includes('yikama')||n.includes('oto yıkama')||n.includes('oto yikama'))return '🧽';if(n.includes('trafik')||n.includes('ceza'))return '🚨';if(n.includes('sigorta'))return '🛡️';if(n.includes('fatura'))return '🧾';if(n.includes('internet'))return '🌐';if(n.includes('kargo'))return '📦';if(n.includes('sağlık')||n.includes('saglik')||n.includes('eczane'))return '💊';if(n.includes('eğitim')||n.includes('egitim')||n.includes('kurs'))return '📚';if(n.includes('seyahat')||n.includes('tatil'))return '✈️';if(type==='Gider')return '−';if(type==='Gelir')return '+';return '₺'}
 function row(t){const isTransfer=t[4]==='Transfer';const val=isTransfer?Math.abs(Number(t[10])||0):Number(t[1]);const sub=isTransfer?`${t[8]||'Banka'} → ${t[9]||'Nakit'}`:`${t[7]||'Banka'} · ${txTimeLabel(t)}`;return `<div class="row" onclick="openTxDetail(${state.transactions.indexOf(t)})"><span class="avatar category-avatar ${t[2]==='green'?'g':t[2]==='purple'?'p':t[2]==='blue'?'b':''}">${categoryIcon(t[0],t[4])}</span><div><div class="rname">${esc(t[0])}</div><div class="rsub">${esc(sub)}</div></div><div class="rval ${isTransfer?'':val>=0?'green':'red'}">${isTransfer?'⇄ ':val>=0?'+':'-'}${money(val)}</div></div>`}
@@ -2444,6 +2400,62 @@ body{overflow-x:hidden!important;overflow-y:auto!important;-webkit-overflow-scro
 .debt-save{width:100%!important;height:44px!important;margin-top:4px!important;border-radius:12px!important;font-weight:700!important}
 .danger-action{color:#ff6676!important;border-color:color-mix(in srgb,#ff465b 30%,#242b47)!important;background:color-mix(in srgb,#ff465b 7%,#080b16)!important}
 .danger-action:active{background:color-mix(in srgb,#ff465b 13%,#080b16)!important}
+</style>
+
+<style id="fix-13388-net-bakiye-sphere">
+/* 13.3.88 — Net Bakiye: cüzdan kaldırıldı, finans küresi kalıcı hedef tasarım. */
+.balance-sphere{
+  position:absolute!important;right:1px!important;top:50%!important;width:116px!important;height:106px!important;
+  transform:translateY(-50%)!important;display:block!important;z-index:3!important;pointer-events:none!important;
+  filter:drop-shadow(0 0 12px rgba(112,55,255,.30))!important;
+}
+.balance-sphere .sphere-glow{
+  position:absolute;inset:16px 17px 14px;border-radius:50%;
+  background:radial-gradient(circle at 42% 36%,rgba(190,146,255,.92) 0%,rgba(123,54,255,.62) 25%,rgba(74,23,190,.42) 48%,rgba(35,9,96,.16) 70%,transparent 76%);
+  filter:blur(7px);animation:ffSpherePulse 3.8s ease-in-out infinite;
+}
+.balance-sphere .sphere-core{
+  position:absolute;left:25px;top:16px;width:68px;height:68px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-size:27px;font-weight:900;
+  background:radial-gradient(circle at 34% 27%,#e9d9ff 0%,#a66bff 12%,#7335ed 32%,#4513b7 62%,#21075e 100%);
+  border:1px solid rgba(210,177,255,.75);
+  box-shadow:inset 9px 8px 18px rgba(255,255,255,.20),inset -10px -12px 22px rgba(16,2,59,.52),0 0 10px rgba(133,69,255,.9),0 0 25px rgba(112,46,244,.68),0 0 44px rgba(86,30,194,.38);
+  animation:ffSphereFloat 4.2s ease-in-out infinite;
+}
+.balance-sphere .sphere-core span{position:relative;z-index:2;text-shadow:0 2px 10px rgba(36,5,91,.65);}
+.balance-sphere .sphere-shine{
+  position:absolute;left:37px;top:24px;width:17px;height:12px;border-radius:50%;
+  background:rgba(255,255,255,.72);filter:blur(2px);transform:rotate(-25deg);opacity:.75;pointer-events:none;
+}
+.balance-sphere .sphere-orbit{
+  position:absolute;left:11px;top:31px;width:92px;height:43px;border:1px solid rgba(170,117,255,.52);
+  border-radius:50%;transform:rotate(-17deg);box-shadow:0 0 8px rgba(126,65,255,.25);
+  animation:ffSphereOrbit 6.5s linear infinite;
+}
+.balance-sphere .sphere-orbit:after{content:"";position:absolute;inset:4px 8px;border:1px solid rgba(122,72,233,.18);border-radius:50%;}
+.balance-sphere .sphere-orbit span{
+  position:absolute;right:-5px;top:10px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 32% 28%,#fff3b5,#f7c83d 38%,#ad6812 100%);
+  color:#fff;font-size:9px;font-weight:900;border:1px solid rgba(255,244,170,.8);
+  box-shadow:0 0 7px rgba(247,185,44,.72),0 0 13px rgba(247,185,44,.35);
+}
+.balance-sphere .sphere-orbit-b{transform:rotate(34deg);animation-duration:8.2s;animation-direction:reverse;opacity:.78;}
+.balance-sphere .sphere-orbit-b span{right:auto;left:-4px;top:7px;background:radial-gradient(circle at 32% 28%,#fff,#d9dce7 38%,#6f7585 100%);box-shadow:0 0 7px rgba(216,220,232,.55);color:#353849;}
+.balance-sphere .sphere-orbit-c{width:82px;height:36px;left:17px;top:35px;transform:rotate(67deg);animation-duration:10s;opacity:.62;}
+.balance-sphere .sphere-orbit-c span{right:2px;top:-6px;background:radial-gradient(circle at 32% 28%,#fff1b0,#e7b833 40%,#9a5d10 100%);}
+@keyframes ffSphereFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.025)}}
+@keyframes ffSpherePulse{0%,100%{opacity:.72;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
+@keyframes ffSphereOrbit{from{rotate:0deg}to{rotate:360deg}}
+@media(max-width:380px){
+  .balance-sphere{width:98px!important;height:92px!important;right:-1px!important}
+  .balance-sphere .sphere-core{left:21px;top:14px;width:59px;height:59px;font-size:23px}
+  .balance-sphere .sphere-glow{inset:14px 14px 12px}
+  .balance-sphere .sphere-orbit{left:7px;top:29px;width:82px;height:37px}
+  .balance-sphere .sphere-orbit-c{left:12px;top:32px;width:74px;height:32px}
+  .balance-sphere .sphere-shine{left:31px;top:21px;width:15px;height:10px}
+}
+@media(prefers-reduced-motion:reduce){.balance-sphere *{animation:none!important}}
+.light .balance-sphere{filter:drop-shadow(0 0 10px rgba(112,55,255,.20))!important}
 </style>
 </head><body>$
 
@@ -3809,3 +3821,106 @@ body.font-size-system .app{font-size:inherit}
   window.__fixFinalPass=true;
 })();
 </script>
+
+
+<style id="fix-13387-net-bakiye-final">
+/* 13.3.87 — Net Bakiye kartı: taşma/çakışma düzeltmesi */
+.balance.card{
+  padding:15px 14px 0!important;
+  overflow:hidden!important;
+}
+.balance-label{
+  display:flex!important;
+  align-items:center!important;
+  gap:5px!important;
+  min-height:24px!important;
+}
+.balance-line{
+  position:relative!important;
+  display:block!important;
+  min-height:100px!important;
+  margin-top:3px!important;
+  padding:4px 104px 4px 0!important;
+}
+.balance-line>div:first-child{
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  gap:7px!important;
+  flex-wrap:nowrap!important;
+}
+.balance-line .amount{
+  display:block!important;
+  max-width:100%!important;
+  white-space:nowrap!important;
+  font-size:30px!important;
+  line-height:1.05!important;
+  letter-spacing:-1.35px!important;
+  overflow:hidden!important;
+  text-overflow:clip!important;
+}
+.balance-line .status{
+  display:inline-flex!important;
+  width:max-content!important;
+  max-width:100%!important;
+  align-items:center!important;
+  min-height:27px!important;
+  padding:5px 9px!important;
+  font-size:10px!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+}
+.balance-line .wallet{
+  position:absolute!important;
+  right:-2px!important;
+  top:50%!important;
+  z-index:3!important;
+  width:102px!important;
+  height:92px!important;
+  flex:none!important;
+  margin:0!important;
+  padding:0!important;
+  transform:translateY(-50%)!important;
+}
+.balance-line .wallet-real-img{
+  width:108px!important;
+  height:104px!important;
+  object-fit:contain!important;
+  transform:none!important;
+}
+.balance-line .wallet-coins{
+  inset:-7px -5px -7px -5px!important;
+}
+.balance-line .wallet-coin{transform-origin:center!important}
+.balance-line .wallet-coin.c1{left:7%!important;top:69%!important}
+.balance-line .wallet-coin.c2{left:69%!important;top:57%!important}
+.balance-line .wallet-coin.c3{left:43%!important;top:5%!important}
+.balance-line .wallet-coin.c4{left:78%!important;top:29%!important}
+.balance-line .wallet-coin.c5{left:16%!important;top:12%!important}
+.balance-line .wallet-coin.c6{left:51%!important;top:80%!important}
+.balance.card .metrics{
+  position:relative!important;
+  z-index:4!important;
+  clear:both!important;
+  margin-top:4px!important;
+}
+.balance.card .metric{min-width:0!important;overflow:hidden!important}
+.balance.card .metric b{
+  display:block!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+@media(max-width:380px){
+  .balance.card{padding-left:13px!important;padding-right:13px!important}
+  .balance-line{min-height:92px!important;padding-right:92px!important}
+  .balance-line .amount{font-size:27px!important;letter-spacing:-1.2px!important}
+  .balance-line .wallet{width:90px!important;height:82px!important;right:-1px!important}
+  .balance-line .wallet-real-img{width:96px!important;height:92px!important}
+  .balance-line .status{font-size:9px!important;padding:5px 8px!important}
+}
+</style>
