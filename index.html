@@ -1684,13 +1684,19 @@ function getProfilePhoto(){
 }
 function profile(){
   const user=window.fixFirebaseUser||null;
-  const guest=sessionStorage.getItem('fix_guest_session')==='1' && !user;
+  // Misafir oturumu hem açık guest bayrağıyla hem de welcome akışının
+  // tamamlanmış olup Firebase kullanıcısının bulunmamasıyla doğrulanır.
+  // Böylece Firebase'in ilk açılışta kullanıcı durumunu belirlediği kısa
+  // zaman aralığında kişisel varsayılan profil yanlışlıkla görünmez.
+  const guest=!user && (sessionStorage.getItem('fix_guest_session')==='1' || localStorage.getItem('fix_welcome_completed')==='1');
   const pname=user?.displayName || (guest?'Misafir Kullanıcı':(localStorage.getItem('fix_profile_name')||'Yılmaz İbrahim'));
   const pmail=user?.email || (guest?'':(localStorage.getItem('fix_profile_mail')||'yilmaz.ibrahim@gmail.com'));
   const paletteNames={purple:'Mor',blue:'Mavi',green:'Yeşil',amber:'Altın',cyan:'Turkuaz',rose:'Pembe',red:'Kırmızı',slate:'Gümüş'};
   const currentPalette=localStorage.getItem('fix_palette')||'purple';
   const items=[...(guest?[]:[['♙','Hesap Bilgileri','accountInfo()']]),[iconSvg('settingsRefresh'),'Ayarlar','profileSettings()'],['◴','Yedekle / Geri Yükle','openBackupRestore()'],['⇩','Veri Dışa Aktar (Excel)','exportExcel()'],['◐',`Tema & Renk · ${paletteNames[currentPalette]||'Mor'}`,'openThemes()'],['ⓘ','Yardım & Destek','showHelp()']];
-  const photo=getProfilePhoto();
+  // Misafir modunda daha önce kaydedilmiş kişisel profil fotoğrafını
+  // göstermiyoruz; Google bağlandığında gerçek hesap fotoğrafı yeniden alınır.
+  const photo=guest?'':getProfilePhoto();
   const authHtml=user
     ? `<span class="firebase-connected">✓ Google bağlı</span>`
     : `<button class="google-connect" onclick="signInWithGoogle()"><span class="google-g">G</span><span>Google ile Bağlan</span></button>`;
@@ -1737,7 +1743,8 @@ function showPeriodPicker(page){
 }
 
 function accountInfo(){
-  if(sessionStorage.getItem('fix_guest_session')==='1' && !window.fixFirebaseUser){showToast('Misafir kullanıcı için hesap bilgisi yok.');return}
+  const guest=!window.fixFirebaseUser && (sessionStorage.getItem('fix_guest_session')==='1' || localStorage.getItem('fix_welcome_completed')==='1');
+  if(guest){showToast('Misafir kullanıcı için hesap bilgisi yok.');return}
   const savedName=localStorage.getItem('fix_profile_name')||'Yılmaz İbrahim';
   const savedMail=localStorage.getItem('fix_profile_mail')||'yilmaz.ibrahim@gmail.com';
   const photo=getProfilePhoto();
@@ -3741,7 +3748,7 @@ body.font-size-system .app{font-size:inherit}
 
 <script>
 (function(){
-  /* 13.3.30 — selected palette + guest profile safety + visual cleanup */
+  /* 13.3.87.1 — guest profile identity safety */
   const originalRender=window.render;
   const paletteVars={
     purple:['#743cff','#4c1ed4'],blue:['#3b82f6','#1d4ed8'],green:['#16c784','#087f5b'],
